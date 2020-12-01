@@ -1,0 +1,24 @@
+<aura:component description="AS_Community_ProductMiniLayout"
+                implements="
+                flexipage:availableForAllPageTypes,
+                forceCommunity:availableForAllPageTypes,
+                flexipage:availableForRecordHome,force:appHostable"
+controller="AS_ProductViewController">
+
+    <aura:attribute name="product" type="Object"/>
+    <aura:attribute name="mainPicture" type="Object"/>
+    <aura:attribute name="pictureUrl" type="String"/>
+
+    <lightning:layout>
+    <ui:button class="product-mini-container" press="{!c.redirect}">
+        <div class="product-mini-background" style="{! v.product.mainPictureId != null ?
+                'background-image:url(\'/as/sfc/servlet.shepherd/version/download/'+v.product.mainPictureId+'\')'
+                : 'background-image:url(\'/resource/1606769344000/AS_Community_DefaultPhoto\')'}">
+        </div>
+        <div class="product-mini-desc">
+        <p class="product-name">{!v.product.productName}</p>
+            <p class="product-price">Price: {!v.product.price} $</p>
+        </div>
+    </ui:button>
+    </lightning:layout>
+</aura:component>

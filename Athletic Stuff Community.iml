@@ -85,6 +85,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_QueryBuilder" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Utils" />
