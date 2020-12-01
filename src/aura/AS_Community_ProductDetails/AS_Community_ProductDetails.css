@@ -1,0 +1,91 @@
+.THIS {
+    width: 100%;
+    height: 100%;
+    margin-top: 5rem;
+
+}
+
+.THIS .product-description__container {
+
+}
+
+.THIS .title {
+
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.THIS .product-family {
+    font-weight: bold;
+    color: gray;
+}
+
+.THIS .stars {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.THIS .price {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+}
+
+.THIS .stars > div{
+    display: inline-block;
+    padding: 20px 20px 20px 0;
+
+    margin-left: -20px ;
+}
+.THIS .product-rating{
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+.THIS .product-rating > span:before{
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 10px;
+    transform: scale(2);
+    content: "\2605";
+    color: #d7d700;
+}
+
+.THIS .price-word{
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.THIS .price-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: green;
+}
+
+.THIS .description-title{
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+
+}
+
+.THIS .description{
+    font-size: 1rem;
+    margin-right: 8rem;
+}
+
+.THIS .buttons {
+margin-top: 1.5rem;
+    margin-left: -0.5rem;
+}
+
+.THIS .buttons button{
+    color: white;
+    background-color: green;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.7rem;
+}

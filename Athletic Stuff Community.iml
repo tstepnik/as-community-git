@@ -57,6 +57,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_Service" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_ContentDocumentLink_TriggerHandler" />
@@ -82,6 +83,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_ProductViewController" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_QueryBuilder" />

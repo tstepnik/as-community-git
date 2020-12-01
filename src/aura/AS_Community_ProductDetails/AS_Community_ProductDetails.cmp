@@ -1,0 +1,63 @@
+<aura:component
+        controller="AS_ProductViewController"
+        implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable,force:hasRecordId">
+    <aura:attribute name="product" type="Object"/>
+    <aura:attribute name="price" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Id,Name,Description,Family"
+                      targetFields="{!v.product}"
+                      targetError="{!v.recordLoadError}"
+    />
+
+    <div class="product-description__container">
+
+        <h1 class="title">{!v.product.Name}</h1>
+        <p class="product-family">{!v.product.Family}</p>
+        <div class="stars">
+            <div class="product-rating slds-button-group-row">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        </div>
+        <div class="price">
+            <p class="price-word">Price: </p>
+            <p class="price-number">{!v.price} $</p>
+        </div>
+        <h1 class="description-title">Description</h1>
+        <p class="description">{!v.product.Description}</p>
+
+
+        <div class="buttons">
+            <lightning:button variant="success" label="{!$Label.c.AS_Community_BuyButton}"/>
+        </div>
+    </div>
+</aura:component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<lightning:card iconName="standard:account" title="{!v.product.Name}">-->
+<!--    <div class="slds-p-horizontal&#45;&#45;small">-->
+<!--        <p class="slds-truncate">-->
+<!--            <lightning:formattedText title="Description" value="{!v.product.Description}"/>-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</lightning:card>-->
