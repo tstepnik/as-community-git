@@ -26,7 +26,8 @@
             } else {
                 this.colorElement(component, newAuraId);
             }
-
+            console.log('Old number: ' + oldNumber);
+            console.log('Clicked number: ' + newNumber);
             component.set('v.clickedNumber-value', clickedNbValue - 1);
             component.set('v.clickedNumber-auraId', newAuraId);
 
@@ -54,6 +55,8 @@
             let oldAIdText = clickedNbAuraId.slice(0, -1);
             let newNumber = parseInt(oldAIdNumber) + 1;
 
+            console.log('Old number: ' + clickedNbValue);
+            console.log('Clicked number: ' + newNumber);
             let newAuraId = oldAIdText + newNumber;
             let offsetSize = component.get('v.offsetSize');
             if (clickedNbAuraId === 'pn-m5') {
@@ -99,8 +102,8 @@
         component.set('v.offset', newOffset);
         this.changeData(component, newOffset);
 
-        // component.set('v.clickedNumber-auraId', auraId);
-        // component.set('v.clickedNumber-value', value);
+        component.set('v.clickedNumber-auraId', auraId);
+        component.set('v.clickedNumber-value', value);
 
         if (value > 1) {
             this.showPreviousPage(component);
@@ -164,7 +167,7 @@
 
     hidePreviousPage: function (component) {
         let pageNumber = component.get('v.clickedNumber-value');
-        console.log('CLICKED NUMBER VALUE: ' + pageNumber );
+        console.log('CLICKED NUMBER VALUE: ' + pageNumber);
         if (pageNumber <= 1) {
             console.log('WCHODZI');
             let toggleText = component.find("previousPage-id");

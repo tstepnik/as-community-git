@@ -54,6 +54,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_SearchEngineController" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_Service" />
