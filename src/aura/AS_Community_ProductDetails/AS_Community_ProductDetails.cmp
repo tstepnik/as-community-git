@@ -39,25 +39,3 @@
         </div>
     </div>
 </aura:component>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<lightning:card iconName="standard:account" title="{!v.product.Name}">-->
-<!--    <div class="slds-p-horizontal&#45;&#45;small">-->
-<!--        <p class="slds-truncate">-->
-<!--            <lightning:formattedText title="Description" value="{!v.product.Description}"/>-->
-<!--        </p>-->
-<!--    </div>-->
-<!--</lightning:card>-->

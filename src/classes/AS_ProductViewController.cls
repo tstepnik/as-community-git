@@ -8,7 +8,6 @@ public with sharing class AS_ProductViewController {
 
     @auraEnabled
     public static String getProductPrice_apex(String productId) {
-        System.debug('WCHODZ IDO APEX CONTROLLER');
         return AS_Community_Service.getProductPrice(productId);
     }
 }
