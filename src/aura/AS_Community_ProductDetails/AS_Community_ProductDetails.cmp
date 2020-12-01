@@ -32,8 +32,7 @@
         </div>
         <h1 class="description-title">Description</h1>
         <p class="description">{!v.product.Description}</p>
-
-
+        
         <div class="buttons">
             <lightning:button variant="success" label="{!$Label.c.AS_Community_BuyButton}"/>
         </div>
