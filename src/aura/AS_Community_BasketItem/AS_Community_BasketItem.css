@@ -1,0 +1,149 @@
+.THIS {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.THIS .lightning-layout-container {
+    width: 100%;
+    height: 100%;
+}
+
+.THIS .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: auto;
+    border: 0.1rem solid gray;
+    display: flex;
+    padding: 0.2rem;
+    justify-content: space-between;
+}
+
+
+.THIS .container-cmp {
+    height: 100%;
+    width: 25%;
+
+}
+
+.THIS .img {
+    margin-left: 1rem;
+    width: 6%;
+    height: 100%;
+}
+
+.THIS .background-img {
+    width: 100%;
+    height: 0;
+    padding: 10% 10% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+
+.THIS .name {
+    width: 54%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .title {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+.THIS .lp {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .lp-container {
+    border: 2px solid gray;
+    width: 9rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .lp-container button,
+.THIS .lp-container span {
+    font-size: 1.3rem;
+    width: 33%;
+    height: 99%;
+    border: none;
+    margin: 1%;
+}
+
+.THIS .priceSpan{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.THIS .price,
+.THIS .price-container{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .price{
+    flex-direction: column;
+}
+
+.THIS .price-container p{
+    margin: 0.2rem;
+    font-size: 1.3rem;
+}
+
+.THIS .price-per-unit{
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+}
+
+
+.THIS  .hideElement{
+    display: none;
+}
+
+.THIS .showElement{
+    display: block;
+}
+
+.THIS .trash {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .trash button{
+    border: none;
+    background: none;
+    outline:none;
+}
+
+.THIS .trash lightning-btn{
+    border: none;
+    background: none;
+    outline:none;
+}
+
+
+.THIS .lp-container input {
+    text-align: center;
+}

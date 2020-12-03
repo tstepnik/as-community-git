@@ -1,0 +1,51 @@
+.THIS {
+    position: relative;
+    float: right;
+}
+
+.THIS .ul-basket {
+    float: right;
+}
+
+.THIS li {
+    float: right;
+}
+
+
+.THIS .slds-context-bar__item {
+    float: right;
+}
+
+.THIS .ul-basket a {
+
+}
+
+.THIS .basketModal {
+    background-color: white;
+    position: absolute;
+    top: 95%;
+    right: 40%;
+    width: 30rem;
+    padding: 0.5rem 0.5rem 0;
+    border: 2px solid gray;
+}
+
+.THIS .hideElement {
+    display: none;
+}
+
+.THIS .sum {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.THIS .sum p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.THIS .empty-basket-p{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

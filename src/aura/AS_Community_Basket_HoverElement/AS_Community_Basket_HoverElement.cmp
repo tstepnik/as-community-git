@@ -1,0 +1,37 @@
+<aura:component description="AS_Community_Basket_HoverElement"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable">
+    <aura:attribute type="String" name="productId"/>
+    <aura:attribute type="String" name="sumPrice"/>
+    <aura:attribute type="Object" name="opportunityProduct"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+
+    <aura:attribute name="product" type="Object"/>
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.opportunityProduct.Product2Id}"
+                      fields="Id,Name,Description,Family,mainPictureId__c"
+                      targetFields="{!v.product}"
+                      targetError="{!v.recordLoadError}"
+    />
+    <lightning:layout class="mainContainer-layout">
+    <div class="container-div">
+        <div class="container-cmp img">
+            <div class="background-img"
+                 style="{! v.product.mainPictureId__c != null ?
+                         'background-image:url(\'/as/sfc/servlet.shepherd/version/download/'+v.product.mainPictureId__c+'\')'
+                         : 'background-image:url(\'/resource/1606769344000/AS_Community_DefaultPhoto\')'}">
+            </div>
+
+        </div>
+        <div class="product-title">
+        <p class="p-amount">{!v.opportunityProduct.Quantity} x</p>
+            <p class="p-title">{!v.product.Name}</p>
+        </div>
+        <div class="product-amount">
+        <p class="p-price-sum">Price: {!v.sumPrice} $</p>
+        <p class="p-price-unit" aura:id="p-priceInit">{!v.opportunityProduct.ListPrice}$ per unit</p>
+        </div>
+    </div>
+    </lightning:layout>
+
+</aura:component>
