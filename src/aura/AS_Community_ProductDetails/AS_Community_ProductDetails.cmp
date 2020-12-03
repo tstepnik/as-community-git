@@ -4,6 +4,7 @@
     <aura:attribute name="product" type="Object"/>
     <aura:attribute name="price" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <lightning:notificationsLibrary aura:id="notification"/>
 
 
     <force:recordData aura:id="recordLoader"
@@ -32,9 +33,32 @@
         </div>
         <h1 class="description-title">Description</h1>
         <p class="description">{!v.product.Description}</p>
-        
+
+
         <div class="buttons">
-            <lightning:button variant="success" label="{!$Label.c.AS_Community_BuyButton}"/>
+            <lightning:button onclick="{!c.addToBasket}" variant="success" label="{!$Label.c.AS_Community_BuyButton}"/>
         </div>
     </div>
 </aura:component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<lightning:card iconName="standard:account" title="{!v.product.Name}">-->
+<!--    <div class="slds-p-horizontal&#45;&#45;small">-->
+<!--        <p class="slds-truncate">-->
+<!--            <lightning:formattedText title="Description" value="{!v.product.Description}"/>-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</lightning:card>-->

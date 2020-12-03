@@ -1,4 +1,8 @@
-public with sharing class AS_Community_Service {
+/**
+ * Created by tomas on 02.12.2020.
+ */
+
+public with sharing class AS_Service {
 
     public static List<documentContentWrapper> getProductPictures(String productId) {
         try {
@@ -8,17 +12,6 @@ public with sharing class AS_Community_Service {
         } catch (Exception ex) {
             throw new AuraHandledException('Exception: ' + ex.getMessage());
         }
-    }
-
-    public static String getProductPrice(String productId) {
-        Decimal price = [
-                SELECT
-                        UnitPrice
-                FROM PricebookEntry
-                WHERE Product2Id = :productId
-        ][0].UnitPrice;
-
-        return String.valueOf(price);
     }
 
     private static List<ContentDocumentLink> getContentDocumentLinkIds(String productId) {
@@ -46,11 +39,4 @@ public with sharing class AS_Community_Service {
             this.documentId = documentId;
         }
     }
-
-
-
-
-
-
-
-}
+    }

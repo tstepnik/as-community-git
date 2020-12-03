@@ -5,6 +5,10 @@
 
 }
 
+.THIS .product-description__container {
+
+}
+
 .THIS .title {
 
     font-size: 2rem;
@@ -71,6 +75,8 @@
 .THIS .description{
     font-size: 1rem;
     margin-right: 8rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .THIS .buttons {
