@@ -42,6 +42,8 @@ public with sharing class AS_QueryBuilder {
         query = 'SELECT ';
     }
 
+
+
     public String whereCondition_returnIf_FieldsContainPhrase(String phrase, List<String> fields, String andOr) {
         String query = '';
 
@@ -69,6 +71,7 @@ public with sharing class AS_QueryBuilder {
         return query;
     }
 
+    //todo need Test
     public void void_whereCondition_returnIf_FieldsContainPhrase(String phrase, List<String> fields, String andOr) {
 
         andOr = checkAndOr(andOr);
@@ -94,6 +97,7 @@ public with sharing class AS_QueryBuilder {
         }
     }
 
+    //todo need Test
     public String whereCondition_returnIf_CertainFields_Contain_CertainPhrases(Map<String, Object> fieldsMap, List<String> conditions, String andOr) {
         String query = '';
 
@@ -123,11 +127,10 @@ public with sharing class AS_QueryBuilder {
         return query;
     }
 
+    //todo need Test
     public void void_whereCondition_returnIf_CertainFields_Contain_CertainPhrases(Map<String, Object> fieldsMap, List<String> conditions, String andOr) {
 
         andOr = checkAndOr(andOr);
-
-
 
         Boolean firstQuery = true;
 
@@ -152,6 +155,7 @@ public with sharing class AS_QueryBuilder {
         }
     }
 
+    //todo need Test
     public String whereCondition_returnIf_CertainFields_Contain_CertainPhrases(SObject obj, List<String> conditions, String andOr) {
 
         String jsonObject = JSON.serialize(obj);
@@ -186,6 +190,7 @@ public with sharing class AS_QueryBuilder {
 
     }
 
+    //todo need Test
     public void void_whereCondition_returnIf_CertainFields_Contain_CertainPhrases(SObject obj, List<String> conditions, String andOr) {
 
         String jsonObject = JSON.serialize(obj);
@@ -233,6 +238,7 @@ public with sharing class AS_QueryBuilder {
         return andOr;
     }
 
+
     public void readyQuery_returnIfFieldsContainPhrase(List<String> selectedFields, String fromObj, String phrase, List<String> where_fields, String andOr) {
 
         clearQuery();
@@ -244,6 +250,7 @@ public with sharing class AS_QueryBuilder {
         }
     }
 
+
     public void readyQuery_PricebookEntry_standardPB_returnIfFieldsContainPhrase_andIsActive(List<String> selectedFields, String fromObj, String phrase, List<String> where_fields, String andOr) {
 
         clearQuery();
@@ -252,10 +259,16 @@ public with sharing class AS_QueryBuilder {
         if (phrase != null) {
             addWHERE();
             ownCondition(' IsActive = true ');
-            ownCondition(' AND Pricebook2.Name LIKE \'Standard Price Book\' AND ');
+            ownCondition(' AND Pricebook2.Name LIKE \'Standard\' AND ');
             query += ' ( ';
             void_whereCondition_returnIf_FieldsContainPhrase(phrase, where_fields, andOr);
             query += ' ) ';
+        }else{
+            addWHERE();
+            ownCondition(' Pricebook2.Name LIKE \'Standard\'');
+
         }
     }
+
+
 }
