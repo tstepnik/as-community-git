@@ -1,8 +1,5 @@
 <aura:component description="AS_Community_ProductMiniLayout"
-                implements="
-                flexipage:availableForAllPageTypes,
-                forceCommunity:availableForAllPageTypes,
-                flexipage:availableForRecordHome,force:appHostable"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable"
 controller="AS_ProductViewController">
 
     <aura:attribute name="product" type="Object"/>

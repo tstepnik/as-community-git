@@ -1,8 +1,6 @@
 <aura:component description="AS_Community_ProductSearchList"
-                implements="flexipage:availableForAllPageTypes,
-                forceCommunity:availableForAllPageTypes,
-                flexipage:availableForRecordHome,force:appHostable"
-controller="AS_Community_SearchEngineController">
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable"
+                controller="AS_Community_SearchEngineController">
 
     <aura:attribute name="products" type="Object[]"/>
     <aura:attribute name="recordsNumber" type="String"/>
@@ -23,12 +21,12 @@ controller="AS_Community_SearchEngineController">
     <aura:attribute name="pn_fifth" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-
+    <lightning:notificationsLibrary aura:id="notification"/>
     <div class='slds-m-around_medium listContainer'>
         <lightning:layout horizontalAlign="center" verticalAlign="center" multipleRows='true'>
 
             <aura:if isTrue="{!v.products.length > 0}">
-                <aura:iteration items="{!v.products}" end="{!v.products.lenght}" var="product">
+                <aura:iteration items="{!v.products}" end="{!v.products.length}" var="product">
                     <lightning:layoutItem flexibility="auto" class="slds-m-around_xx-large">
                         <c:AS_Community_ProductMiniLayout product="{!product}"/>
                     </lightning:layoutItem>
@@ -42,7 +40,7 @@ controller="AS_Community_SearchEngineController">
         </lightning:layout>
         <lightning:layout class="pagination-lightningLayout">
 
-            <div class="pagination">
+            <div class="pagination" aura:id="pagination-div">
                 <div class="products-number">
                     <p>{!v.recordsOnPage_start} - {!v.recordsOnPage_end} z {!v.recordsNumber} ofert</p>
                 </div>
