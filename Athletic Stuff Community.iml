@@ -45,6 +45,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_BasketListController" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_ProductDetailsController" />
@@ -481,6 +482,18 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="sobjectPartnerSoapSforceCom" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AS_Community_BasketItem_Controller" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AS_Order_Service" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AS_Product_Service" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>

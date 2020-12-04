@@ -1,3 +1,6 @@
+/**
+ * Created by tomas on 26.11.2020.
+ */
 ({
 
     onInit: function (component, event, helper) {
@@ -15,7 +18,6 @@
     },
 
     pressBasket: function (component, event, helper) {
-        console.log('pressBasket controller');
         helper.removeProductFromBasket(component,event,helper);
         helper.pressBasket(component,event);
     }

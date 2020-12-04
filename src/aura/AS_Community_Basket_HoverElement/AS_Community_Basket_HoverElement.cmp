@@ -1,3 +1,7 @@
+<!--
+ - Created by tomas on 02.12.2020.
+ -->
+
 <aura:component description="AS_Community_Basket_HoverElement"
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable">
     <aura:attribute type="String" name="productId"/>
@@ -13,6 +17,7 @@
                       targetFields="{!v.product}"
                       targetError="{!v.recordLoadError}"
     />
+
     <lightning:layout class="mainContainer-layout">
     <div class="container-div">
         <div class="container-cmp img">

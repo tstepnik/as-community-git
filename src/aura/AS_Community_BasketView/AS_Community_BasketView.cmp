@@ -2,6 +2,7 @@
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable"
                 controller="AS_Community_BasketListController"
 >
+
     <aura:attribute name="opportunityProducts" type="Object[]"/>
     <aura:attribute name="priceSum" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
@@ -16,6 +17,7 @@
             </div>
             <aura:if isTrue="{!v.opportunityProducts.length > 0}">
             <div class="bView-product-list">
+
 
                                         <aura:iteration items="{!v.opportunityProducts}" end="{!v.opportunityProducts.length}" var="product">
                     <c:AS_Community_BasketItem opportunityProduct = "{!product}" />
@@ -38,4 +40,6 @@
         </div>
         <div aura:id="cart-is-empty" class="cartIsEmpty"><p>Basket is empty</p></div>
     </lightning:layout>
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
 </aura:component>

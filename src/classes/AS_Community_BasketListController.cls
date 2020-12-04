@@ -2,32 +2,27 @@ public with sharing class AS_Community_BasketListController {
 
     @auraEnabled
     public static List<OrderItem> getOpportunityProducts() {
-        return AS_Service.getOpportunityProducts();
+        return AS_Order_Service.getOrderItems();
     }
 
     @AuraEnabled
     public static Decimal countSum() {
-        return AS_Service.countSum();
+        return AS_Order_Service.countOrderAmount();
     }
 
     @AuraEnabled
     public static List<OrderItem> getBasketElements() {
-        return AS_Service.getBasketElements();
+        return AS_Order_Service.getBasketElements();
     }
 
     @auraEnabled
     public static Order createNewOrder() {
-        return AS_Service.createNewOrder();
+        return AS_Order_Service.createNewOrder();
     }
 
     @AuraEnabled
-    public static void removeBasketElement(String sObjectId) {
-        OrderItem myOrderItem = new OrderItem(Id = sObjectId);
-        delete myOrderItem;
-    }
-
-    public static String getContactId() {
-        return AS_Service.getContactId();
+    public static Order getBasketOrder() {
+      return AS_Order_Service.getBasketOrder();
     }
 
 }

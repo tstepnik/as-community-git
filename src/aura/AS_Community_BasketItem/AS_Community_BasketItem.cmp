@@ -1,9 +1,12 @@
+<!--
+ - Created by tomas on 25.11.2020.
+ -->
+
 <aura:component description="AS_Community_BasketItem"
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable"
 controller="AS_Community_BasketItem_Controller">
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <lightning:notificationsLibrary aura:id="notification"/>
 
     <aura:attribute type="Object" name="opportunityProduct"/>
     <aura:attribute type="Object" name="product"/>
@@ -24,7 +27,6 @@ controller="AS_Community_BasketItem_Controller">
 
     <lightning:layout class="lightning-layout-container" >
         <div class="container" aura:id="mainContainer">
-
             <div class="container-cmp img">
                 <div class="background-img"
                      style="{! v.product.mainPictureId__c != null ?
@@ -60,5 +62,6 @@ controller="AS_Community_BasketItem_Controller">
         </div>
 
     </lightning:layout>
-
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
 </aura:component>

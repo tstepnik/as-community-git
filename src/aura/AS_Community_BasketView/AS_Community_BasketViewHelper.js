@@ -1,5 +1,5 @@
 ({
-    getOpportunityProducts: function (component, event) {
+    getOpportunityProducts: function (component,event,helper) {
         const action = component.get('c.getOpportunityProducts');
 
         action.setCallback(this, function (response) {
@@ -10,26 +10,31 @@
                 component.set('v.opportunityProducts', oppProducts);
 
             } else {
-                this.handleErrors(component, event, response);
+                this.handleShowToast(component, event, 'Error', 'error', 'Error while processing loading data');
+                let errors = response.getError();
+                if (errors && Array.isArray(errors) && errors.length > 0) {
+                    console.error(JSON.stringify(errors[0].message));
+                }
             }
+
         });
         $A.enqueueAction(action);
-        this.countSum(component, event);
+        this.countSum(component,event);
+
     },
 
-    countSum: function (component, event) {
+    countSum: function (component,event) {
         const action = component.get('c.countSum');
         action.setCallback(this, function (response) {
             let state = response.getState();
             if (state === "SUCCESS") {
                 let priceSum = response.getReturnValue();
-                console.log('Price: ' + priceSum);
-                component.set('v.priceSum', priceSum);
-                if (priceSum <= 0) {
+                component.set('v.priceSum',priceSum);
+                if(priceSum <= 0){
                     this.hideButton(component);
                 }
-            } else if (state === "ERROR") {
-                this.handleErrors(component, event, response);
+            }      else if (state === "ERROR") {
+                this.handleErrors(component,response);
             }
         });
         $A.enqueueAction(action);
@@ -44,35 +49,35 @@
         });
     },
 
-    handleErrors: function (component, event, response) {
-        this.handleShowToast(component, event, 'Error', 'Error', 'Error while processing loading data');
-        let errors = response.getError();
-        if (errors) {
-            if (errors[0] && errors[0].message) {
-                console.log("Error message: " +
-                    errors[0].message);
-            }
-        } else {
-            console.log("Unknown error");
-        }
-    },
-
     handleEvent: function (component, event) {
-        this.countSum(component, event);
+        this.countSum(component,event);
 
     },
 
     hideButton: function (component) {
         let element = component.find('buyBtn');
-        let cartIsEmpty = component.find('cart-is-empty');
         $A.util.toggleClass(element, "hideElement");
+        let cartIsEmpty = component.find('cart-is-empty');
         $A.util.removeClass(cartIsEmpty, "hideElement");
 
+    },
+
+    showButton: function(component) {
+        let element = component.find('buyBtn');
+        $A.util.removeClass(element, "hideElement");
+        let cartIsEmpty = component.find('cart-is-empty');
+        $A.util.toggleClass(cartIsEmpty, "hideElement");
     },
 
     hideEmptyCartText: function (component) {
         let cartIsEmpty = component.find('cart-is-empty');
         $A.util.toggleClass(cartIsEmpty, "hideElement");
+    },
+
+    handleErrors: function (component,response) {
+        let sendErrorToast = component.find('errorToastMaker');
+        let errors = response.getErrors();
+        sendErrorToast.handleErrors('Error', 'Error while processing loading data', 'Error', errors);
     }
 
 })

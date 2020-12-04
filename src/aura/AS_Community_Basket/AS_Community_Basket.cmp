@@ -31,10 +31,11 @@
             <p>Sum: {!v.priceSum} $</p>
             </div>
                 <aura:set attribute="else">
-                    <p class="empty-basket-p">{!$Label.c.AS_Community_EmptyBasketMsg}</p>
+                    <p class="empty-basket-p">Basket is empty.</p>
                 </aura:set>
             </aura:if>
         </div>
     </lightning:layout>
-
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
 </aura:component>

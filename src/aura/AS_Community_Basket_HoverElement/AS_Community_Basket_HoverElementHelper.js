@@ -1,6 +1,6 @@
 ({
 
-    countSum: function (component) {
+    countSum: function (component, event) {
         let quantity = component.get('v.opportunityProduct').Quantity;
         let amount = component.get('v.opportunityProduct').ListPrice;
 
