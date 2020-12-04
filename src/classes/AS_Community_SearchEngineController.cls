@@ -1,21 +1,21 @@
 public with sharing class AS_Community_SearchEngineController {
 
     @AuraEnabled
-    public static List<AS_Service.ProductInfoWrapper> getNextPageOffset(String inpTxt, Integer offset) {
-        Integer queryLimit = Integer.valueOf(System.Label.AS_Community_SearchLimit);
-        return AS_Service.productInfoWrappers(inpTxt, queryLimit, offset);
+    public static List<AS_Product_Service.ProductInfoWrapper> getNextPageOffset(String inpTxt, Integer offset) {
+
+        return AS_Product_Service.productInfoWrappers(inpTxt, offset);
     }
 
     @AuraEnabled
     public static Integer countProducts(String inpTxt) {
-
-        return AS_Service.countProducts(inpTxt);
+        return AS_Product_Service.countProducts(inpTxt);
     }
 
     @AuraEnabled
-    public static AS_Service.FirstQueryInfo getFirstQueryInfo(String inpTxt) {
-        Integer queryLimit = Integer.valueOf(System.Label.AS_Community_SearchLimit);
-        return AS_Service.getFirstQueryInfo(inpTxt, queryLimit, 0);
+    public static AS_Product_Service.SearchProductsWrapper getSearchProductsWrapper(String inpTxt) {
+        return AS_Product_Service.getSearchProductsWrapper(inpTxt, 0);
 
     }
+
+
 }

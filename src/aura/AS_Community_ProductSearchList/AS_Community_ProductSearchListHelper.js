@@ -182,7 +182,7 @@
                 this.setRange(component, numberOfRecords, offset, firstQueryInfo.queryLimit);
 
             } else if (state === "ERROR") {
-                this.handleErrors(component, event, response);
+                this.handleErrors(component, response);
             }
         });
         $A.enqueueAction(action);
@@ -293,25 +293,10 @@
         $A.util.toggleClass(toggleText, classToAdd);
     },
 
-    handleShowToast: function (component, event, title, variant, message) {
-        component.find('notification').showToast({
-            "title": title,
-            "variant": variant,
-            "message": message
-        });
-    },
-
-    handleErrors: function (component, event, response) {
-        this.handleShowToast(component, event, 'Error', 'Error', 'Error while processing loading data');
-        let errors = response.getError();
-        if (errors) {
-            if (errors[0] && errors[0].message) {
-                console.log("Error message: " +
-                    errors[0].message);
-            }
-        } else {
-            console.log("Unknown error");
-        }
+    handleErrors: function (component,response) {
+        let sendErrorToast = component.find('errorToastMaker');
+        let errors = response.getErrors();
+        sendErrorToast.handleErrors('Error', 'Error while processing loading data', 'Error', errors);
     }
 
 })
