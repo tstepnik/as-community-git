@@ -1,0 +1,51 @@
+<aura:component
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:appHostable"
+                controller="AS_Community_BasketItem_Controller">
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <lightning:notificationsLibrary aura:id="notification"/>
+
+    <aura:attribute type="Object" name="opportunityProduct"/>
+    <aura:attribute type="Object" name="product"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="numberOfUnits" type="String"/>
+    <aura:attribute name="productPrice" type="String"/>
+    <aura:attribute name="priceSum" type="String"/>
+
+    <aura:registerEvent name="deleteRecordEvent" type="c:AS_Community_RequestSum_Event" />
+
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.opportunityProduct.Product2Id}"
+                      fields="Id,Name,Description,Family,mainPictureId__c"
+                      targetFields="{!v.product}"
+                      targetError="{!v.recordLoadError}"
+    />
+
+    <lightning:layout class="lightning-layout-container" >
+        <div class="container" aura:id="mainContainer">
+
+            <div class="container-cmp img">
+                <div class="background-img"
+                     style="{! v.product.mainPictureId__c != null ?
+            'background-image:url(\'/as/sfc/servlet.shepherd/version/download/'+v.product.mainPictureId__c+'\')'
+            : 'background-image:url(\'/resource/1606769344000/AS_Community_DefaultPhoto\')'}">
+                </div>
+
+            </div>
+            <div class="container-cmp name">
+                <p class="title">{!v.product.Name}</p>
+
+            </div>
+            <div class="container-cmp price">
+                <div class="price-container">
+                    <p class="price-number">{!v.priceSum}</p>
+                    <p class="price-currency">$</p>
+                </div>
+                <div class="price-per-unit" aura:id="unitPrice"><p>{!v.opportunityProduct.ListPrice}$ per unit</p> </div>
+            </div>
+
+        </div>
+
+    </lightning:layout>
+
+</aura:component>

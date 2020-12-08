@@ -1,0 +1,9 @@
+<!--
+ - Created by tomas on 04.12.2020.
+ -->
+
+<aura:event type="APPLICATION" description="AS_Community_OrderIdEvent">
+    <aura:attribute type="String" name="recordId"/>
+    <aura:attribute type="String" name="orderNumber"/>
+
+</aura:event>

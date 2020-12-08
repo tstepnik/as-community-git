@@ -1,0 +1,66 @@
+<aura:component description="AS_OrderListView"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId"
+                controller="AS_Community_OrderController">
+    <aura:attribute name="orderWrappers" type="Object[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:registerEvent name="getOrderIdEvent" type="c:AS_Community_OrderIdEvent" />
+
+    <lightning:layout class="layout-container">
+        <div class="container">
+            <p> Your Orders</p>
+            <lightning:card title="Your Orders" iconName="standard:partner_fund_request">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer table-main">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Account name">Order Number</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Country">Create at</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Rating">Number of Products</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="City">Number of Units</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Active">Amount</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-body">
+                    <aura:iteration items="{!v.orderWrappers}" var="wrapper" indexVar="index">
+                        <tr aura:id="row" onclick="{!c.tableRowClicked}" data-id="{!wrapper.orderNumber}" data-index="{!index}">
+                            <td data-label="Order Number">
+                                    {!wrapper.orderNumber}
+                            </td>
+                            <td data-label="Create at">
+                                    {!wrapper.createdDate}
+
+                            </td>
+                            <td data-label="Number of Products">
+                                    {!wrapper.numberOfProducts}
+
+                            </td>
+                            <td data-label="Number of Units">
+                                    {!wrapper.numberOfUnits}
+
+                            </td>
+                            <td data-label="Amount">
+                            {!wrapper.sum} $
+
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </lightning:card>
+
+        </div>
+
+    </lightning:layout>
+
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
+</aura:component>

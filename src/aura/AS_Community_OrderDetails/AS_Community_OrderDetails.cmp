@@ -1,0 +1,149 @@
+<aura:component description="AS_Community_OrderDetails"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId"
+                controller="AS_Community_BasketListController"
+>
+    <aura:attribute name="orderItemWrappers" type="Object[]"/>
+    <aura:attribute name="OrderNumber" type="String"/>
+    <aura:handler event="c:AS_Community_OrderIdEvent" action="{!c.loadDetails}"/>
+    <aura:attribute name="showNewComplainModal" type="Boolean"/>
+    <aura:attribute name="caseOrderNumber" type="Integer"/>
+    <aura:attribute name="caseProductName" type="String"/>
+    <aura:attribute name="caseSubject" type="String"/>
+    <aura:attribute name="caseMessage" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <lightning:notificationsLibrary aura:id="notification"/>
+
+    <aura:if isTrue="{!v.showNewComplainModal}">
+
+        <div role="dialog" class="slds-modal slds-fade-in-open newCase-container">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h1 class="slds-text-heading--medium">Complaint</h1>
+                </header>
+                <lightning:layout multipleRows="true">
+                    <div class="popup-inputs">
+                        <lightning:input disabled="true" name="input6" value="{!v.OrderNumber}" label="Order Number"/>
+                        <lightning:input name="input6" disabled="true" value="{!v.caseProductName}" label="Product Name"/>
+                        <lightning:input name="input6" required="true" value="{!v.caseSubject}" label="Subject"/>
+                        <p>Information</p>
+                        <lightning:inputRichText value="{!v.caseMessage}"/>
+                    </div>
+                </lightning:layout>
+                <footer class="slds-modal__footer">
+                    <lightning:button name='No' label='No' onclick='{!c.closeModal}'/>
+                    <lightning:button variant="brand" name='Send' label='Yes' onclick='{!c.createCase}'/>
+                </footer>
+            </div>
+        </div>
+
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+    <lightning:layout class="layout-container">
+        <div class="container">
+            <div class="title-and-btn">
+            <p>Order Details</p>
+
+            </div>
+                <lightning:card title="{!'Order nr: ' + v.OrderNumber}" iconName="standard:partner_fund_request">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer table-main">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Account name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Amount">Quantity</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Price">Price</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Total Amount">Total Amount</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Actions">Actions</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-body">
+                    <aura:iteration items="{!v.orderItemWrappers}" var="item" indexVar="index">
+                        <tr aura:id="row" onclick="{!c.tableRowClicked}" data-id="{!item.productName}" data-index="{!index}">
+
+                        <td data-label="Name">
+                                    {!item.productName}
+                            </td>
+                            <td data-label="Quantity">
+                                    {!item.quantity}
+
+                            </td>
+                            <td data-label="Price">
+                            {!item.price} $
+
+                            </td>
+                            <td data-label="Total Amount">
+                            {!item.totalAmount} $
+                            </td>
+                            <td>
+                                <lightning:button variant="brand-outline" label="Complaint" onclick="{!c.handleNewCaseModal}"/>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </lightning:card>
+        </div>
+
+    </lightning:layout>
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</aura:component>
