@@ -1,0 +1,99 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global"
+                controller="AS_Community_CaseController">
+    <aura:attribute name="showNewComplainModal" type="Boolean"/>
+    <aura:attribute name="fields" type="String[]"
+                    default="['Name','AnnualRevenue','Industry','BillingCountry','BillingCity','BillingStreet']"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="myVal" type="String"/>
+    <aura:attribute name="caseOrderNumber" type="Integer"/>
+    <aura:attribute name="caseProductName" type="String"/>
+    <aura:attribute name="caseSubject" type="String"/>
+    <aura:attribute name="caseMessage" type="String"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:if isTrue="{!v.showNewComplainModal}">
+
+        <div role="dialog" class="slds-modal slds-fade-in-open newCase-container">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h1 class="slds-text-heading--medium">Complaint</h1>
+                </header>
+                <lightning:layout multipleRows="true">
+                    <div class="popup-inputs">
+                        <lightning:input name="input6" type="number" value="{!v.caseOrderNumber}" label="Order Number"/>
+                        <lightning:input name="input6" required="true" value="{!v.caseProductName}" label="Product Name"/>
+                        <lightning:input name="input6" required="true" value="{!v.caseSubject}" label="Subject"/>
+                        <p>Information</p>
+                        <lightning:inputRichText value="{!v.caseMessage}"/>
+                    </div>
+                </lightning:layout>
+                <footer class="slds-modal__footer">
+                    <lightning:button name='No' label='No' onclick='{!c.closeModal}'/>
+                    <lightning:button variant="brand" name='Send' label='Yes' onclick='{!c.createCase}'/>
+                </footer>
+            </div>
+        </div>
+
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+
+    <div class="slds-page-header slds-page-header_related-list">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <nav role="navigation" aria-label="Breadcrumbs">
+                    <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                        <li class="slds-breadcrumb__item">
+                            <a href="javascript:void(0);">Cases</a>
+                        </li>
+                    </ol>
+                </nav>
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                        <span class="slds-page-header__title slds-truncate"
+                                              title="Contacts (will truncate)">Your Complaints</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-page-header__col-actions">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <ul class="slds-button-group-list">
+                            <li>
+
+                                <lightning:button aura:id="submit" type="submit" variant="brand" label="New Complaint"
+                                                  onclick="{!c.handleNewCaseModal}"/>
+
+                            </li>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-meta">
+                <p class="slds-page-header__meta-text"></p>
+            </div>
+            <div class="slds-page-header__col-controls">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+
+                    </div>
+                    <div class="slds-page-header__control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
+</aura:component>

@@ -1,0 +1,26 @@
+<!--
+ - Created by tomas on 07.12.2020.
+ -->
+
+<aura:component description="AS_Complaints_ListView" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"
+                access="global" controller="AS_Community_CaseController">
+   <aura:attribute name="caseWrappers" type="Object[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <lightning:layout class="lightning-container">
+
+<div class="listView-container">
+    <aura:if isTrue="{!v.caseWrappers.length > 0}">
+        <aura:iteration items="{!v.caseWrappers}" end="{!v.caseWrappers.length}" var="wrapper">
+            <c:AS_Community_CaseMini caseWrapper = "{!wrapper}" />
+        </aura:iteration>
+        <aura:set attribute="else">
+            <p class="empty-basket-p">There is no cases.</p>
+        </aura:set>
+    </aura:if>
+</div>
+
+    </lightning:layout>
+
+    <c:AS_SendResultToast aura:id ="toastMaker"/>
+    <c:AS_SendErrorToast aura:id ="errorToastMaker"/>
+</aura:component>

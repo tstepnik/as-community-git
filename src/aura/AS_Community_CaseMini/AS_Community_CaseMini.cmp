@@ -1,0 +1,41 @@
+<!--
+ - Created by tomas on 07.12.2020.
+ -->
+
+<aura:component description="AS_Community_CaseMini">
+
+    <aura:attribute type="Object" name="caseWrapper"/>
+    <aura:attribute type="Object[]" name="serviceResponses"/>
+
+
+    <lightning:layout>
+        <div class="container">
+            <div class="case-basicInfo">
+                <p><b>Created at: </b> {!v.caseWrapper.caseOpen}</p>
+                <p><b>case number: </b> {!v.caseWrapper.caseNumber}</p>
+                <p><b>Status: </b> {!v.caseWrapper.status}</p>
+                <p><b>Product: </b> {!v.caseWrapper.productName}</p>
+                <p><b>Order: </b> {!v.caseWrapper.orderNumber}</p>
+            </div>
+            <div class="case-serviceResponse">
+                <div class="user-message">
+                    <p><b>Subject: </b> {!v.caseWrapper.subject}</p>
+                    <p>{!v.caseWrapper.description}</p>
+                </div>
+
+                <aura:if isTrue="{!v.caseWrapper.serviceResponseWrappers.length > 0}">
+
+                    <aura:iteration items="{!v.caseWrapper.serviceResponseWrappers}" end="{!v.caseWrapper.serviceResponseWrappers.length}" var="response">
+                        <div class="service-response">
+                            <p class="service-worker-credentials">{!response.owner}</p>
+                            <p class="service-response-date">{!response.createdAt}</p>
+                            <p class="service-response-description">{!response.message}</p>
+                        </div>
+                    </aura:iteration>
+
+                </aura:if>
+
+            </div>
+        </div>
+    </lightning:layout>
+</aura:component>

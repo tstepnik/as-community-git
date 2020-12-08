@@ -1,0 +1,51 @@
+/**
+ * Created by tomas on 07.12.2020.
+ */
+.THIS {
+    margin-top: 1rem;
+}
+
+.THIS .container{
+    background-color: #bebebe;
+    width: 100%;
+    border: 1px solid gray;
+    display: flex;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+.THIS .case-basicInfo{
+    padding: 0.5rem;
+    width: 20%;
+    border-right: 1px solid gray;
+}
+
+.THIS .case-serviceResponse {
+    padding: 0.5rem;
+    width: 80%;
+}
+
+.THIS .user-message{
+    width: 100%;
+    border-bottom: 1px solid #838383;
+
+}
+
+.THIS .service-response {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    border-bottom: 1px solid #838383;
+}
+
+.THIS .service-worker-credentials,
+.THIS .service-response-date {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.THIS .service-response-description{
+    margin-top: 0.5rem;
+}
