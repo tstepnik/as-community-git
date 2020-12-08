@@ -54,6 +54,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_SearchEngineController" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Community_Service" />
@@ -87,6 +88,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_QueryBuilder" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AS_Utils" />
@@ -483,6 +485,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="sobjectPartnerSoapSforceCom" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AS_Product_Service" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
